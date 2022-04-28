@@ -41,6 +41,8 @@ pe "git add namespaces/bank-of-anthos/pod-creator-rolebinding.yaml"
 pe "git commit -m 'Add developer2 to pod-creator'"
 pe "git push"
 
+sleep 5
+
 pe "kubectl get rolebindings -n bank-of-anthos pod-creators -o yaml"
 
 pe "export HASH=$(git rev-parse HEAD)"
