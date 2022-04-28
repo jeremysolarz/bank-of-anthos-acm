@@ -22,7 +22,7 @@ if [ ! -d "$REPO_NAME" ]; then
 fi
 
 # watch ClusterRolebinding
-pe "kubectl get rolebindings pod-creator -o yaml"
+pe "kubectl get rolebindings pod-creators -o yaml"
 
 # (in another termin) edit
 pe "vim ${REPO_NAME}/namespace/bank-of-anthos/pod-creator-rolebinding.yaml"
@@ -32,7 +32,7 @@ pe "vim ${REPO_NAME}/namespace/bank-of-anthos/pod-creator-rolebinding.yaml"
 #  name: developer2@bank-of-anthos.com
 #  apiGroup: rbac.authorization.k8s.io
 
-pe "kubectl get rolebindings pod-creator -o yaml"
+pe "kubectl get rolebindings pod-creators -o yaml"
 
 pe "cd ${REPO_NAME}"
 # commit changes
