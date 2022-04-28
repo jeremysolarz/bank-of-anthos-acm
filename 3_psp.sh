@@ -47,6 +47,8 @@ pe "export HASH=$(git rev-parse HEAD)"
 pe "git revert $HASH"
 pe "git push"
 
-pe "kubectl apply -f priv-pod.yaml"
+pe "kubectl apply -f namespaces/bank-of-anthos/priv-pod.yaml"
 pe "kubectl get pods -n bank-of-anthos privileged"
 pe "kubectl delete pod  -n bank-of-anthos privileged"
+
+delete psp-constraint.yaml
