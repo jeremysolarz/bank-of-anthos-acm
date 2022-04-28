@@ -26,7 +26,7 @@ git clone git@github.com:${GIT_USER}/${REPO_NAME}.git > /dev/null 2>&1
 pe "kubectl get rolebindings -n bank-of-anthos pod-creators -o yaml"
 
 # (in another termin) edit
-pe "sed '/#insert/r dev2.txt' ${REPO_NAME}/namespaces/bank-of-anthos/pod-creator-rolebinding.yaml"
+pe "sed -i '' '/#insert/r dev2.txt' ${REPO_NAME}/namespaces/bank-of-anthos/pod-creator-rolebinding.yaml"
 
 # add to subjects
 # - kind: User
@@ -49,4 +49,4 @@ pe "export HASH=$(git rev-parse HEAD)"
 pe "git revert $HASH"
 pe "git push"
 
-pe "kubectl get rolebindings -n bank-of-anthos pod-creator -o yaml"
+pe "kubectl get rolebindings -n bank-of-anthos pod-creators -o yaml"
