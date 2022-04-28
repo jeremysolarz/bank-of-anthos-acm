@@ -1,12 +1,12 @@
-kind: ClusterRoleBinding
+kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: namespace-readers
+  name: pod-creators
 subjects:
 - kind: User
-  name: admin@bank-of-anthos.com
+  name: developer1@bank-of-anthos
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: ClusterRole
-  name: namespace-reader
+  name: pod-creator
   apiGroup: rbac.authorization.k8s.io

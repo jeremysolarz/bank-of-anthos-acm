@@ -22,25 +22,25 @@ if [ ! -d "$REPO_NAME" ]; then
 fi
 
 # watch ClusterRolebinding
-pe "kubectl get clusterrolebindings namespace-readers -o yaml"
+pe "kubectl get rolebindings pod-creator -o yaml"
 
 # (in another termin) edit
-pe "vim ${REPO_NAME}/cluster/namespace-reader-clusterrolebinding.yaml"
+pe "vim ${REPO_NAME}/namespace/bank-of-anthos/pod-creator-rolebinding.yaml"
 
 # add to subjects
 # - kind: User
-#  name: jane@bank-of-anthos.com
+#  name: developer2@bank-of-anthos.com
 #  apiGroup: rbac.authorization.k8s.io
 
-pe "kubectl get clusterrolebindings namespace-readers -o yaml"
+pe "kubectl get rolebindings pod-creator -o yaml"
 
 pe "cd ${REPO_NAME}"
 # commit changes
-pe "git add cluster/namespace-reader-clusterrolebinding.yaml"
-pe "git commit -m 'Add Jane to namespace-reader'"
+pe "git add namespace/bank-of-anthos/pod-creator-rolebinding.yaml"
+pe "git commit -m 'Add developer2 to pod-creator'"
 pe "git push"
 
-pe "kubectl get clusterrolebindings namespace-readers -o yaml"
+pe "kubectl get rolebindings pod-creator -o yaml"
 
 pe "export HASH=$(git rev-parse HEAD)"
 

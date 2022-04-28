@@ -20,10 +20,10 @@ export BASE_DIR=$(realpath $(dirname $BASH_SOURCE))
 pe "kubectl get clusterroles -l app.kubernetes.io/managed-by=configmanagement.gke.io"
 
 # list roles
-pe "kubectl get rolebinding --all-namespaces -l app.kubernetes.io/managed-by=configmanagement.gke.io"
+pe "kubectl get clusterrolebinding --all-namespaces -l app.kubernetes.io/managed-by=configmanagement.gke.io"
 #
 ## pod security policies
-pe "kubectl get psp --all-namespaces -l app.kubernetes.io/managed-by=configmanagement.gke.io"
+pe "kubectl get resourcequota --all-namespaces -l app.kubernetes.io/managed-by=configmanagement.gke.io"
 #
 ## attempt to modify
 pe "kubectl delete secret jwt-key -n bank-of-anthos"
