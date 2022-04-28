@@ -25,7 +25,7 @@ fi
 pe "kubectl get rolebindings -n bank-of-anthos pod-creators -o yaml"
 
 # (in another termin) edit
-pe "vim ${REPO_NAME}/namespace/bank-of-anthos/pod-creator-rolebinding.yaml"
+pe "vim ${REPO_NAME}/namespaces/bank-of-anthos/pod-creator-rolebinding.yaml"
 
 # add to subjects
 # - kind: User
