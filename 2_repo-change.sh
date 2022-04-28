@@ -51,4 +51,6 @@ pe "export HASH=$(git rev-parse HEAD)"
 pe "git revert $HASH"
 pe "git push"
 
+sleep 10
+
 pe "kubectl get rolebindings -n bank-of-anthos pod-creators -o yaml"
