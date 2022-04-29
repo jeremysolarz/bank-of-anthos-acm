@@ -32,23 +32,13 @@ EOF
 
 pe "cat psp-constraint.yaml"
 
-# commit changes
-pe "git add psp-constraint.yaml"
-pe "git commit -m 'Add constraing'"
-pe "git push"
+pe "kubectl apply -f psp-constraint.yaml"
 
-pe "kubectl get constraint"
-
-pe "kubectl apply -f priv-pod.yaml"
-
-pe "export HASH=$(git rev-parse HEAD)"
-
-# revert change
-pe "git revert $HASH"
-pe "git push"
+pe "kubectl get K8sPSPPrivilegedContainer"
 
 pe "kubectl apply -f namespaces/bank-of-anthos/priv-pod.yaml"
 pe "kubectl get pods -n bank-of-anthos privileged"
-pe "kubectl delete pod  -n bank-of-anthos privileged"
 
-delete psp-constraint.yaml
+pe "kubectl delete -f psp-constraint.yaml"
+
+rm -rf psp-constraint.yaml
